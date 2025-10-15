@@ -11,7 +11,7 @@ public class t2ej11 {
         int B = scanner.nextInt();
         System.out.println("Introduce el tercer número");
         int C = scanner.nextInt();
-        if (B-A==1 && C-B==1) {
+        if ((B-A==1 && C-B==1) || (B-C==1 && A-B==1)) {
             System.out.println("Los números son consecutivos");
         }else{
             System.out.println("Los números no son consecutivos");

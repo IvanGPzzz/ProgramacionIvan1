@@ -14,13 +14,13 @@ public class t2ej13 {
 
         System.out.println("Introduce los minutos");
         int minutos = scanner.nextInt();
-        while (minutos < 0 || horas > 60) {
+        while (minutos < 0 || minutos > 60) {
             System.out.println("Introduce los minutos");
             minutos = scanner.nextInt();
         }
         System.out.println("Introduce los segundos");
         int segundos = scanner.nextInt();
-        while (segundos < 0 || horas > 60) {
+        while (segundos < 0 || segundos > 60) {
             System.out.println("Introduce los segundos");
             segundos = scanner.nextInt();
         }

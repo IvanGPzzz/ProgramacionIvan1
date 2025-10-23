@@ -46,6 +46,7 @@ public class T2PESTRUCTURADA {
         } while (vel1 + att1 + def1 + hps1 > 500);
 
         do {
+            System.out.println(" ");
             System.out.println("Introduce las stats del JUGADOR 2 (no pueden superar los 200 puntos ni sumar más de 500).");
             System.out.println("Velocidad: ");
             vel2 = sc.nextInt();
@@ -73,7 +74,9 @@ public class T2PESTRUCTURADA {
             }
         } while (vel2 + att2 + def2 + hps2 > 500);
 
-        //2. Combate por turnos
+        //2. Decisión atacante 1er turno
+        boolean p1 = false;
+        System.out.println(" ");
         System.out.println("En el turno 1 comienza:");
          if (vel1 == vel2) {
              Random tiebreaker = new Random();
@@ -81,20 +84,57 @@ public class T2PESTRUCTURADA {
              if (tiebreak == 0) {
                  vel1 = vel1 + 1;
                  System.out.println("El JUGADOR 1");
-             } else {
+                 p1 = true;
+             } else  {
                  vel2 = vel2 + 1;
                  System.out.println("El JUGADOR 2");
+                 p1 = false;
              }
+         } else if (vel1 > vel2) {
+             System.out.println("El JUGADOR 1");
+             p1 = true;
+         } else {
+             System.out.println("El JUGADOR 2");
+             p1 = false;
          }
-         System.out.println("Comienza el combate!");
-         System.out.println("TURNO 1");
-         if (vel1>vel2) {
-            hps2 = hps2 + def2 - att1;
-        } else {
-            hps1 = hps1 + def1 - att2;
-        }
-         System.out.println("Jugador 1: " + hps1);
-         System.out.println("Jugador 2: " + hps2);
 
+         System.out.println(" ");
+         System.out.println("Comienza el combate!");
+         System.out.println(" ");
+
+        //3. Turnos
+         int turno = 1;
+         do {
+             System.out.println(" ");
+             System.out.println("TURNO " + turno);
+             Random attinc = new Random();
+             if (p1 == true) {
+                 hps2 = hps2 + def2 - att1 - attinc.nextInt(9);
+                 p1 = false;
+             } else {
+                 hps1 = hps1 + def1 - att2 - attinc.nextInt(9);
+                 p1=true;
+             }
+             if (hps1 < 0) {
+                 hps1 = 0;
+             }
+             if (hps2 < 0) {
+                 hps2 = 0;
+             }
+             System.out.println("Jugador 1: " + hps1);
+             System.out.println("Jugador 2: " + hps2);
+             System.out.println(" ");
+             turno++;
+         } while (hps1>0 && hps2>0);
+
+         //4. Resultado final
+         if (hps1>0){
+             System.out.println(" ");
+             System.out.println("Gana el JUGADOR 1");
+         }
+        if (hps2>0){
+            System.out.println(" ");
+            System.out.println("Gana el JUGADOR 2");
+        }
     }
 }

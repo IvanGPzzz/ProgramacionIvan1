@@ -74,7 +74,7 @@ public class T2PESTRUCTURADA {
             }
         } while (vel2 + att2 + def2 + hps2 > 500);
 
-        //2. Decisión atacante 1er turno
+        //2. Decisión 1er atacante
         boolean p1 = false;
         System.out.println(" ");
         System.out.println("En el turno 1 comienza:");
@@ -108,11 +108,12 @@ public class T2PESTRUCTURADA {
              System.out.println(" ");
              System.out.println("TURNO " + turno);
              Random attinc = new Random();
+             Random defdec = new Random();
              if (p1 == true) {
-                 hps2 = hps2 + def2 - att1 - attinc.nextInt(9);
+                 hps2 = hps2 + def2 * defdec.nextInt(3) - att1 - attinc.nextInt(9);
                  p1 = false;
              } else {
-                 hps1 = hps1 + def1 - att2 - attinc.nextInt(9);
+                 hps1 = hps1 + def1 * defdec.nextInt(3) - att2 - attinc.nextInt(9);
                  p1=true;
              }
              if (hps1 < 0) {
@@ -130,11 +131,10 @@ public class T2PESTRUCTURADA {
          //4. Resultado final
          if (hps1>0){
              System.out.println(" ");
-             System.out.println("Gana el JUGADOR 1");
-         }
-        if (hps2>0){
+             System.out.println("GANADOR: JUGADOR 1");
+         } else if (hps2>0){
             System.out.println(" ");
-            System.out.println("Gana el JUGADOR 2");
+            System.out.println("GANADOR: JUGADOR 2");
         }
     }
 }

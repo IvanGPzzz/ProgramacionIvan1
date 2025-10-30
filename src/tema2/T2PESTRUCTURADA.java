@@ -102,18 +102,18 @@ public class T2PESTRUCTURADA {
          System.out.println("Comienza el combate!");
          System.out.println(" ");
 
-        //3. Turnos
+        //3. Combate por turnos
          int turno = 1;
          do {
              System.out.println(" ");
              System.out.println("TURNO " + turno);
              Random attinc = new Random();
-             Random defdec = new Random();
              if (p1 == true) {
-                 hps2 = hps2 + def2 * defdec.nextInt(3) - att1 - attinc.nextInt(9);
+
+                 hps2 = hps2 + (att1 / def2) - att1 - attinc.nextInt(9);
                  p1 = false;
              } else {
-                 hps1 = hps1 + def1 * defdec.nextInt(3) - att2 - attinc.nextInt(9);
+                 hps1 = hps1 + (att2 / def1) - att2 - attinc.nextInt(9);
                  p1=true;
              }
              if (hps1 < 0) {
@@ -122,6 +122,7 @@ public class T2PESTRUCTURADA {
              if (hps2 < 0) {
                  hps2 = 0;
              }
+
              System.out.println("Jugador 1: " + hps1);
              System.out.println("Jugador 2: " + hps2);
              System.out.println(" ");

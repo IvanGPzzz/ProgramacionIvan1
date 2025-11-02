@@ -18,6 +18,9 @@ public class T2PESTRUCTURADA {
         int hps2 = 0;
 
         do {
+            if(vel1 + att1 + def1 + hps1 > 500){
+                System.out.println("Las STATS suman más de 500.");
+            }
             System.out.println("Introduce las stats del JUGADOR 1 (no pueden superar los 200 puntos ni sumar más de 500).");
             System.out.println("Velocidad: ");
             vel1 = sc.nextInt();
@@ -46,6 +49,9 @@ public class T2PESTRUCTURADA {
         } while (vel1 + att1 + def1 + hps1 > 500);
 
         do {
+            if(vel2 + att2 + def2 + hps2 > 500){
+                System.out.println("Las STATS suman más de 500.");
+            }
             System.out.println(" ");
             System.out.println("Introduce las stats del JUGADOR 2 (no pueden superar los 200 puntos ni sumar más de 500).");
             System.out.println("Velocidad: ");
@@ -108,12 +114,21 @@ public class T2PESTRUCTURADA {
              System.out.println(" ");
              System.out.println("TURNO " + turno);
              Random attinc = new Random();
-             Random defdec = new Random();
-             if (p1 == true) {
-                 hps2 = hps2 + def2 * defdec.nextInt(3) - att1 - attinc.nextInt(9);
+             if (p1) {
+                 int damage = att1 - def2 + attinc.nextInt(9);
+                 if (damage < 10) damage = 10;
+                 hps2 -= damage;
+                 if (hps2 > 200) {
+                     hps2 = 200;
+                 }
                  p1 = false;
              } else {
-                 hps1 = hps1 + def1 * defdec.nextInt(3) - att2 - attinc.nextInt(9);
+                 int damage = att2 - def1 + attinc.nextInt(9);
+                 if (damage < 10) damage = 10;
+                 hps1 -= damage;
+                 if (hps1 > 200) {
+                     hps1 = 200;
+                 }
                  p1=true;
              }
              if (hps1 < 0) {

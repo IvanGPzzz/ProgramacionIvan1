@@ -137,13 +137,13 @@ public class T2PESTRUCTURADA {
              if (hps2 < 0) {
                  hps2 = 0;
              }
-             // --- Barra de vida Jugador 1 ---
+             //Barra de vida Jugador 1
              int barra1 = (int) ((hps1 / 200.0) * 20); // 20 guiones máximo
              String vida1 = "";
              for (int i = 0; i < barra1; i++) vida1 += "-";
              for (int i = barra1; i < 20; i++) vida1 += " ";
 
-             // --- Barra de vida Jugador 2 ---
+             //Barra de vida Jugador 2
              int barra2 = (int) ((hps2 / 200.0) * 20);
              String vida2 = "";
              for (int i = 0; i < barra2; i++) vida2 += "-";

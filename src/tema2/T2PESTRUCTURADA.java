@@ -8,14 +8,14 @@ public class T2PESTRUCTURADA {
 
         //1. Recopilación de stats de los jugadores
         Scanner sc = new Scanner(System.in);
-        int vel1 = 0;
-        int att1 = 0;
-        int def1 = 0;
-        int hps1 = 0;
-        int vel2 = 0;
-        int att2 = 0;
-        int def2 = 0;
-        int hps2 = 0;
+        int vel1;
+        int att1;
+        int def1;
+        int hps1;
+        int vel2;
+        int att2;
+        int def2;
+        int hps2;
 
         do {
             System.out.println("Introduce las stats del JUGADOR 1 (no pueden superar los 200 puntos ni sumar más de 500).");
@@ -123,11 +123,26 @@ public class T2PESTRUCTURADA {
                  hps2 = 0;
              }
 
-             System.out.println("Jugador 1: " + hps1);
-             System.out.println("Jugador 2: " + hps2);
+             //Barra de vida Jugador 1
+             int barra1 = (int) ((hps1 / 200.0) * 20); // 20 guiones máximo
+             String vida1 = "";
+             for (int i = 0; i < barra1; i++) vida1 += "-";
+             for (int i = barra1; i < 20; i++) vida1 += " ";
+
+             //Barra de vida Jugador 2
+             int barra2 = (int) ((hps2 / 200.0) * 20);
+             String vida2 = "";
+             for (int i = 0; i < barra2; i++) vida2 += "-";
+             for (int i = barra2; i < 20; i++) vida2 += " ";
+
+             System.out.println("Jugador 1: " + hps1 + " [" + vida1 + "]");
+             System.out.println("Jugador 2: " + hps2 + " [" + vida2 + "]");
              System.out.println(" ");
              turno++;
+
          } while (hps1>0 && hps2>0);
+
+
 
          //4. Resultado final
          if (hps1>0){

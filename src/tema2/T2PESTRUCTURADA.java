@@ -8,14 +8,14 @@ public class T2PESTRUCTURADA {
 
         //1. Recopilación de stats de los jugadores
         Scanner sc = new Scanner(System.in);
-        int vel1;
-        int att1;
-        int def1;
-        int hps1;
-        int vel2;
-        int att2;
-        int def2;
-        int hps2;
+        int vel1 = 0;
+        int att1 = 0;
+        int def1 = 0;
+        int hps1 = 0;
+        int vel2 = 0;
+        int att2 = 0;
+        int def2 = 0;
+        int hps2 = 0;
 
         do {
             System.out.println("Introduce las stats del JUGADOR 1 (no pueden superar los 200 puntos ni sumar más de 500).");
@@ -102,18 +102,18 @@ public class T2PESTRUCTURADA {
          System.out.println("Comienza el combate!");
          System.out.println(" ");
 
-        //3. Combate por turnos
+        //3. Turnos
          int turno = 1;
          do {
              System.out.println(" ");
              System.out.println("TURNO " + turno);
              Random attinc = new Random();
+             Random defdec = new Random();
              if (p1 == true) {
-
-                 hps2 = hps2 + (att1 / def2) - att1 - attinc.nextInt(9);
+                 hps2 = hps2 + def2 * defdec.nextInt(3) - att1 - attinc.nextInt(9);
                  p1 = false;
              } else {
-                 hps1 = hps1 + (att2 / def1) - att2 - attinc.nextInt(9);
+                 hps1 = hps1 + def1 * defdec.nextInt(3) - att2 - attinc.nextInt(9);
                  p1=true;
              }
              if (hps1 < 0) {
@@ -122,27 +122,11 @@ public class T2PESTRUCTURADA {
              if (hps2 < 0) {
                  hps2 = 0;
              }
-
-             //Barra de vida Jugador 1
-             int barra1 = (int) ((hps1 / 200.0) * 20); // 20 guiones máximo
-             String vida1 = "";
-             for (int i = 0; i < barra1; i++) vida1 += "-";
-             for (int i = barra1; i < 20; i++) vida1 += " ";
-
-             //Barra de vida Jugador 2
-             int barra2 = (int) ((hps2 / 200.0) * 20);
-             String vida2 = "";
-             for (int i = 0; i < barra2; i++) vida2 += "-";
-             for (int i = barra2; i < 20; i++) vida2 += " ";
-
-             System.out.println("Jugador 1: " + hps1 + " [" + vida1 + "]");
-             System.out.println("Jugador 2: " + hps2 + " [" + vida2 + "]");
+             System.out.println("Jugador 1: " + hps1);
+             System.out.println("Jugador 2: " + hps2);
              System.out.println(" ");
              turno++;
-
          } while (hps1>0 && hps2>0);
-
-
 
          //4. Resultado final
          if (hps1>0){

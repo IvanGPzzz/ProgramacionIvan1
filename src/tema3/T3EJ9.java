@@ -17,11 +17,11 @@ public class T3EJ9 {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner triang = new Scanner(System.in);
         System.out.println("Introduce el numero: ");
-        int numLineas = sc.nextInt();
+        int numLineas = triang.nextInt();
         System.out.println("Introduce una letra: ");
-        char letra = sc.next().charAt(0);
+        char letra = triang.next().charAt(0);
 
         for (int poslinea = 1; poslinea <= numLineas; poslinea++) {
             System.out.println(triangulo(numLineas, letra, poslinea));

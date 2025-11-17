@@ -12,10 +12,10 @@ public class T3EJ2 {
     }
 
     public static void main (String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner anios = new Scanner(System.in);
         int edad;
         System.out.print("Ingrese el edad: ");
-        edad = sc.nextInt();
+        edad = anios.nextInt();
 
         if (esAdulto(edad)){
             System.out.println("La persona es mayor de edad");

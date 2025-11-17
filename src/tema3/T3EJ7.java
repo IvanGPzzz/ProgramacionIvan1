@@ -16,9 +16,9 @@ public class T3EJ7 {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Digite un numero: ");
-        int numero = sc.nextInt();
+        Scanner primos = new Scanner(System.in);
+        System.out.println("Digite un numeroo introduzca un 0 para terminar: ");
+        int numero = primos.nextInt();
 
         while (numero != 0) {
             if (esprimo(numero)) {
@@ -27,7 +27,8 @@ public class T3EJ7 {
                 System.out.println("El número no es primo");
             }
             System.out.println("Digite otro numero: ");
-            numero = sc.nextInt();
+            numero = primos.nextInt();
         }
+        System.out.println("Saliendo. . . ");
     }
 }

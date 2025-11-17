@@ -20,27 +20,11 @@ public class T3EJ3 {
     }
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner radios = new Scanner(System.in);
         double rad;
 
-        /*do {
-            System.out.print("Ingrese el valor del radio: ");
-            rad = input.nextDouble();
-
-            double perimeter = CirclePerimeter(rad);
-            double area = CircleArea(rad);
-
-            if (!validRadius(rad)) {
-                System.out.println("El valor del radio no es valido");
-            } else {
-                System.out.println("El valor del radio es: " + perimeter + " y el valor del area es: " + area);
-                break;
-            }
-
-        } while (validRadius(rad));*/
-
         System.out.print("Ingrese el valor del radio: ");
-        rad = input.nextDouble();
+        rad = radios.nextDouble();
 
         double perimeter = CirclePerimeter(rad);
         double area = CircleArea(rad);

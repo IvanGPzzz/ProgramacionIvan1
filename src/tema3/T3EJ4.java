@@ -11,7 +11,7 @@ public class T3EJ4 {
         return value * 0.86;
     }
     public static void showMenu() {
-        System.out.println("Introduce una cantidad");
+        System.out.println("Elige una conversión:");
         System.out.println("1. Euro->dólar");
         System.out.println("2. Dólar->euro");
         System.out.println("Otro->Salir");
@@ -20,16 +20,17 @@ public class T3EJ4 {
         showMenu();
         Scanner value = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("0.00");
-        int eleccion = value.nextInt();
+
+        int moneda = value.nextInt();
         double money;
-        switch (eleccion) {
+        switch (moneda) {
             case 1:
-                System.out.println("EUR:");
+                System.out.println("Introduce un precio en EUR:");
                 money = value.nextDouble();
                 System.out.println("USD: " + euro2dollar(money));
                 break;
             case 2:
-                System.out.println("USD:");
+                System.out.println("Introduce un precio en USD:");
                 double eur = dollar2eur(value.nextDouble());
                 System.out.println("EUR: " + eur);
                 break;

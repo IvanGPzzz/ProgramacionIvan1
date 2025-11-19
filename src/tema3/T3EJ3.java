@@ -20,11 +20,11 @@ public class T3EJ3 {
     }
 
     public static void main(String[] args) {
-        Scanner radios = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         double rad;
 
         System.out.print("Ingrese el valor del radio: ");
-        rad = radios.nextDouble();
+        rad = sc.nextDouble();
 
         double perimeter = CirclePerimeter(rad);
         double area = CircleArea(rad);

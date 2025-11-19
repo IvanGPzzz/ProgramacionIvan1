@@ -18,20 +18,20 @@ public class T3EJ4 {
     }
     public static void main(String[] args) {
         showMenu();
-        Scanner value = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("0.00");
 
-        int moneda = value.nextInt();
+        int moneda = sc.nextInt();
         double money;
         switch (moneda) {
             case 1:
                 System.out.println("Introduce un precio en EUR:");
-                money = value.nextDouble();
+                money = sc.nextDouble();
                 System.out.println("USD: " + euro2dollar(money));
                 break;
             case 2:
                 System.out.println("Introduce un precio en USD:");
-                double eur = dollar2eur(value.nextDouble());
+                double eur = dollar2eur(sc.nextDouble());
                 System.out.println("EUR: " + eur);
                 break;
             default:

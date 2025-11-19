@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class T3EJ2 {
     public static boolean esAdulto(int edad){
+        //return edad>=18;
         if (edad >= 18){
             return true;
         } else {

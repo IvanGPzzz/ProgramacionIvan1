@@ -15,9 +15,9 @@ public class T3EJ1 {
 
     public static void main(String[] args) {
 
-        Scanner signos = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Introduce un nümero entero y diré si es positivo(1), negativo(-1) o cero(0)");
-        int num = signos.nextInt();
+        int num = sc.nextInt();
 
         int valor = numberSing(num);
         if (valor == -1) {

@@ -30,15 +30,15 @@ public class T3EJ8 {
     }
 
     public static void main(String[] args) {
-        Scanner fechas = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Introduce el día (1-31): ");
-        int dia = fechas.nextInt();
+        int dia = sc.nextInt();
 
         System.out.print("Introduce el mes (1-12): ");
-        int mes = fechas.nextInt();
+        int mes = sc.nextInt();
 
         System.out.print("Introduce el año: ");
-        int anio = fechas.nextInt();
+        int anio = sc.nextInt();
 
         if (esFechaValida(dia, mes, anio)) {
             System.out.println("La fecha es correcta.");

@@ -17,7 +17,7 @@ public class T3EJ7 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Digite un numeroo introduzca un 0 para terminar: ");
+        System.out.println("Digite un numero o introduzca un 0 para terminar: ");
         int numero = sc.nextInt();
 
         while (numero != 0) {

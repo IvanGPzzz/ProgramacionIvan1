@@ -16,8 +16,8 @@ public class T3EJ10 {
                 "h) Comprobador de fechas.\n" +
                 "i) Dibujar triángulos. \n");
         Scanner sc = new Scanner(System.in);
-        //TODO: cambiar los scanner. SOLO 1 SCANER POR CLASE/MÉTODO
         String eleccion = sc.nextLine();
+
         switch (eleccion){
             case "a":
                 System.out.println("Introduce un nümero entero y diré si es positivo(1), negativo(-1) o cero(0)");

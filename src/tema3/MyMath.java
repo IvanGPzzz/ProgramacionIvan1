@@ -50,15 +50,7 @@ public class MyMath {
     }
 //noEsPrimo
     public static boolean noEsPrimo (int numero) {
-        if (numero == 1){
-            return true;
-        }
-        for (int i = 2; i < numero; i++) {
-            if ((numero % i) == 0) {
-                return true;
-            }
-        }
-        return false;
+        return !esPrimo(numero);
     }
 
 //EJ3 contDigit

@@ -172,7 +172,7 @@ public class MenuMyMath {
                 int c = sc.nextInt();
                 sc.nextLine();
                 double soluciones = MyMath.ecuacion(a, b, c);
-                System.out.println("La ecuación "+a+"x^2 + "+b+"x + "+c+" = 0 tiene " + (int)soluciones + " solución(es) real(es).");
+                System.out.println("La ecuación ("+a+"x^2 + "+b+"x + "+c+" = 0) tiene " + (int)soluciones + " solución(es) real(es).");
                 break;
             case "i":
                 System.out.println("Introduce un número entero para sumar sus dígitos:");

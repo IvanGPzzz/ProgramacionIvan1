@@ -17,8 +17,8 @@ public class MyArray {
 
     //1b maxArray
     public static int maxArray (int[] array) {
-        int max = 0;
-        for (int i = 0; i < array.length; i++) {
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
             if (array[i] > max) {
                 max = array[i];
             }
@@ -28,11 +28,8 @@ public class MyArray {
 
     //1c minArray
     public static int minArray (int[] array) {
-        int min = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (i==0 && min==0){
-                min = array[i];
-            }
+        int min = array[0];
+        for (int i = 1; i < array.length; i++) {
             if (array[i] < min) {
                 min = array[i];
             }

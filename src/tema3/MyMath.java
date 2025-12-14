@@ -67,7 +67,7 @@ public class MyMath {
         return cifras;
     }
 
-//EJ4 conrDigitPar
+//EJ4 contDigitPar
     public static int contDigitPar(int numero){
         int cifras_pares = 0;
         if (numero == 0) {

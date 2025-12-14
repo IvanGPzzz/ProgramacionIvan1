@@ -37,7 +37,7 @@ public class MyString {
 
 // c) longerPalabra
     public String longerPalabra(String cadena) {
-        String[] palabras = cadena.split("");
+        String[] palabras = cadena.split(" ");
         String resultado = "";
         int maxLength = 0;
         for (String palabra : palabras) {
@@ -66,7 +66,7 @@ public class MyString {
 
 // e) contPalabras
     public static int contPalabras(String cadena) {
-        String[] palabras = cadena.trim().split("");
+        String[] palabras = cadena.trim().split(" ");
         return palabras.length;
     }
 

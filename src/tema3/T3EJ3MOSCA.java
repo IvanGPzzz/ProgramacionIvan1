@@ -3,7 +3,7 @@ package tema3;
 import java.util.Random;
 import java.util.Scanner;
 
-public class T3EJ3ARRAYS {
+public class T3EJ3MOSCA {
     public static void main(String[] args) {
         Random rndm = new Random();
         int[] tablero = new int[15];

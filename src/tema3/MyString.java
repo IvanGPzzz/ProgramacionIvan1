@@ -49,7 +49,20 @@ public class MyString {
         return resultado;
     }
 
-// d)
+// d) contarInclusiones
+    public static int contarInclusiones(String cadenaPrincipal, String subcadena) {
+
+        int contador = 0;
+        int indiceInicio = 0;
+        int longitudSubcadena = subcadena.length();
+
+        while ((indiceInicio = cadenaPrincipal.indexOf(subcadena, indiceInicio)) != -1) {
+            contador++;
+            indiceInicio += longitudSubcadena;
+        }
+
+        return contador;
+    }
 
 // e) contPalabras
     public static int contPalabras(String cadena) {
@@ -76,6 +89,34 @@ public class MyString {
         return sb.toString();
     }
 
-// g)
+// g) contarVocales
+public static int[] contarVocales(String cadena) {
+    int[] contadoresVocales = new int[5];
+    String cadenaMayusculas = cadena.toUpperCase();
+
+    for (int i = 0; i < cadenaMayusculas.length(); i++) {
+        char caracter = cadenaMayusculas.charAt(i);
+
+        switch (caracter) {
+            case 'A':
+                contadoresVocales[0]++;
+                break;
+            case 'E':
+                contadoresVocales[1]++;
+                break;
+            case 'I':
+                contadoresVocales[2]++;
+                break;
+            case 'O':
+                contadoresVocales[3]++;
+                break;
+            case 'U':
+                contadoresVocales[4]++;
+                break;
+        }
+    }
+
+    return contadoresVocales;
+}
 
 }

@@ -6,135 +6,127 @@ import java.util.Scanner;
 public class T2PESTRUCTURADA {
     public static void main(String[] args) {
 
-        //1. Recopilación de stats de los jugadores
         Scanner sc = new Scanner(System.in);
-        int vel1 = 0;
-        int att1 = 0;
-        int def1 = 0;
-        int hps1 = 0;
-        int vel2 = 0;
-        int att2 = 0;
-        int def2 = 0;
-        int hps2 = 0;
+        Random rand = new Random();
 
+// 1. Recopilación de stats
+        int vel1, att1, def1, hps1;
+        int vel2, att2, def2, hps2;
+
+        // Jugador 1
         do {
-            System.out.println("Introduce las stats del JUGADOR 1 (no pueden superar los 200 puntos ni sumar más de 500).");
-            System.out.println("Velocidad: ");
-            vel1 = sc.nextInt();
-            while (1 > vel1 || vel1 > 200) {
-                System.out.println("Veocidad errónea. Velocidad: ");
-                vel1 = sc.nextInt();
-            }
-            System.out.println("Ataque: ");
-            att1 = sc.nextInt();
-            while (1 > att1 || att1 > 200) {
-                System.out.println("Ataque erróneo. Ataque: ");
-                att1 = sc.nextInt();
-            }
-            System.out.println("Defensa: ");
-            def1 = sc.nextInt();
-            while (1 > def1 || def1 > 200) {
-                System.out.println("Defensa erróneo. Defensa: ");
-                def1 = sc.nextInt();
-            }
-            System.out.println("Puntos de vida: ");
-            hps1 = sc.nextInt();
-            while (1 > hps1 || hps1 > 200) {
-                System.out.println("Puntos de vida erróneos. Puntos de vida: ");
-                hps1 = sc.nextInt();
-            }
-        } while (vel1 + att1 + def1 + hps1 > 500);
+            System.out.println("Introduce las stats del JUGADOR 1 (max 200/stat, total max 500).");
+            System.out.print("Velocidad: "); vel1 = sc.nextInt();
+            System.out.print("Ataque: ");    att1 = sc.nextInt();
+            System.out.print("Defensa: ");   def1 = sc.nextInt();
+            System.out.print("Vida: ");      hps1 = sc.nextInt();
+        } while (vel1 + att1 + def1 + hps1 > 500 || vel1 < 1 || att1 < 1 || def1 < 1 || hps1 < 1);
 
+        // Jugador 2
         do {
-            System.out.println(" ");
-            System.out.println("Introduce las stats del JUGADOR 2 (no pueden superar los 200 puntos ni sumar más de 500).");
-            System.out.println("Velocidad: ");
-            vel2 = sc.nextInt();
-            while (1 > vel2 || vel2 > 200) {
-                System.out.println("Veocidad errónea. Velocidad: ");
-                vel2 = sc.nextInt();
-            }
-            System.out.println("Ataque: ");
-            att2 = sc.nextInt();
-            while (1 > att2 || att2 > 200) {
-                System.out.println("Ataque erróneo. Ataque: ");
-                att2 = sc.nextInt();
-            }
-            System.out.println("Defensa: ");
-            def2 = sc.nextInt();
-            while (1 > def2 || def2 > 200) {
-                System.out.println("Defensa erróneo. Defensa: ");
-                def2 = sc.nextInt();
-            }
-            System.out.println("Puntos de vida: ");
-            hps2 = sc.nextInt();
-            while (1 > hps2 || hps2 > 200) {
-                System.out.println("Puntos de vida erróneos. Puntos de vida: ");
-                hps2 = sc.nextInt();
-            }
-        } while (vel2 + att2 + def2 + hps2 > 500);
+            System.out.println("\nIntroduce las stats del JUGADOR 2 (max 200/stat, total max 500).");
+            System.out.print("Velocidad: "); vel2 = sc.nextInt();
+            System.out.print("Ataque: ");    att2 = sc.nextInt();
+            System.out.print("Defensa: ");   def2 = sc.nextInt();
+            System.out.print("Vida: ");      hps2 = sc.nextInt();
+        } while (vel2 + att2 + def2 + hps2 > 500 || vel2 < 1 || att2 < 1 || def2 < 1 || hps2 < 1);
 
-        //2. Decisión 1er atacante
-        boolean p1 = false;
-        System.out.println(" ");
-        System.out.println("En el turno 1 comienza:");
-         if (vel1 == vel2) {
-             Random tiebreaker = new Random();
-             int tiebreak = tiebreaker.nextInt(2);
-             if (tiebreak == 0) {
-                 vel1 = vel1 + 1;
-                 System.out.println("El JUGADOR 1");
-                 p1 = true;
-             } else  {
-                 vel2 = vel2 + 1;
-                 System.out.println("El JUGADOR 2");
-                 p1 = false;
-             }
-         } else if (vel1 > vel2) {
-             System.out.println("El JUGADOR 1");
-             p1 = true;
-         } else {
-             System.out.println("El JUGADOR 2");
-             p1 = false;
-         }
-
-         System.out.println(" ");
-         System.out.println("Comienza el combate!");
-         System.out.println(" ");
-
-        //3. Turnos
-         int turno = 1;
-         do {
-             System.out.println(" ");
-             System.out.println("TURNO " + turno);
-             Random attinc = new Random();
-             Random defdec = new Random();
-             if (p1 == true) {
-                 hps2 = hps2 + def2 * defdec.nextInt(3) - att1 - attinc.nextInt(9);
-                 p1 = false;
-             } else {
-                 hps1 = hps1 + def1 * defdec.nextInt(3) - att2 - attinc.nextInt(9);
-                 p1=true;
-             }
-             if (hps1 < 0) {
-                 hps1 = 0;
-             }
-             if (hps2 < 0) {
-                 hps2 = 0;
-             }
-             System.out.println("Jugador 1: " + hps1);
-             System.out.println("Jugador 2: " + hps2);
-             System.out.println(" ");
-             turno++;
-         } while (hps1>0 && hps2>0);
-
-         //4. Resultado final
-         if (hps1>0){
-             System.out.println(" ");
-             System.out.println("GANADOR: JUGADOR 1");
-         } else if (hps2>0){
-            System.out.println(" ");
-            System.out.println("GANADOR: JUGADOR 2");
+// 2. Decisión del primer turno
+        boolean turnoP1;
+        if (vel1 > vel2) {
+            turnoP1 = true;
+        } else if (vel2 > vel1) {
+            turnoP1 = false;
+        } else {
+            turnoP1 = rand.nextBoolean(); // Empate: azar
         }
+
+        System.out.println("\n¡COMIENZA EL COMBATE!");
+
+// 3. Bucle de combate interactivo
+        int turno = 1;
+        while (hps1 > 0 && hps2 > 0) {
+            System.out.println("\n========================================");
+            System.out.println("RONDA " + turno);
+
+            // Mostrar Barras de Vida (un guion por cada 5 puntos de vida)
+            System.out.print("J1: ");
+            for (int i = 0; i < hps1 / 5; i++) {
+                System.out.print("-");
+            }
+            System.out.println(" (" + hps1 + " HP)");
+
+            System.out.print("J2: ");
+            for (int i = 0; i < hps2 / 5; i++) {
+                System.out.print("-");
+            }
+            System.out.println(" (" + hps2 + " HP)");
+            System.out.println("========================================");
+
+            int accion;
+            if (turnoP1) {
+                System.out.println("TURNO JUGADOR 1. (1) Atacar (2) Curar (3) Defender");
+                accion = sc.nextInt();
+
+                if (accion == 1) { // ATACAR
+                    int daño = att1 - (def2 / 5) + rand.nextInt(10);
+                    if (daño < 0) daño = 0;
+
+                    // Crítico aleatorio (15% de probabilidad)
+                    if (rand.nextInt(100) < 15) {
+                        int extra = rand.nextInt(21); // Hasta 20 de daño extra
+                        daño = daño + extra;
+                        System.out.print("¡GOLPE CRÍTICO! ");
+                    }
+                    hps2 = hps2 - daño;
+                    System.out.println("J1 causa " + daño + " de daño.");
+                } else if (accion == 2) { // CURAR
+                    int cura = 10 + rand.nextInt(11);
+                    hps1 = hps1 + cura;
+                    System.out.println("J1 se cura " + cura + " HP.");
+                } else { // DEFENDER
+                    System.out.println("J1 se prepara para resistir el próximo golpe.");
+                    def1 = def1 + 15;
+                }
+            } else {
+                System.out.println("TURNO JUGADOR 2. (1) Atacar (2) Curar (3) Defender");
+                accion = sc.nextInt();
+
+                if (accion == 1) { // ATACAR
+                    int daño = att2 - (def1 / 5) + rand.nextInt(10);
+                    if (daño < 0) daño = 0;
+
+                    if (rand.nextInt(100) < 15) {
+                        int extra = rand.nextInt(21);
+                        daño = daño + extra;
+                        System.out.print("¡GOLPE CRÍTICO! ");
+                    }
+                    hps1 = hps1 - daño;
+                    System.out.println("J2 causa " + daño + " de daño.");
+                } else if (accion == 2) { // CURAR
+                    int cura = 10 + rand.nextInt(11);
+                    hps2 = hps2 + cura;
+                    System.out.println("J2 se cura " + cura + " HP.");
+                } else { // DEFENDER
+                    System.out.println("J2 se prepara para resistir.");
+                    def2 = def2 + 15;
+                }
+            }
+
+            if (hps1 < 0) hps1 = 0;
+            if (hps2 < 0) hps2 = 0;
+
+            turnoP1 = !turnoP1; // Alternar turno
+            turno++;
+        }
+
+// 4. Resultado final
+        System.out.println("\n**************************");
+        if (hps1 > 0) {
+            System.out.println("EL GANADOR ES EL JUGADOR 1");
+        } else {
+            System.out.println("EL GANADOR ES EL JUGADOR 2");
+        }
+        System.out.println("**************************");
     }
 }

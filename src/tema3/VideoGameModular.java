@@ -3,7 +3,7 @@ package tema3;
 import java.util.Random;
 import java.util.Scanner;
 
-public class T2PMODULAR {
+public class VideoGameModular {
 
     // Variables globales
     static int vel1, att1, def1, hps1;

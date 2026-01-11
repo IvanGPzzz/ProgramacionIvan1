@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class T2PMODULAR {
 
-    // Variables globales (Atributos de clase)
+    // Variables globales
     static int vel1, att1, def1, hps1;
     static int vel2, att2, def2, hps2;
     static Scanner sc = new Scanner(System.in);

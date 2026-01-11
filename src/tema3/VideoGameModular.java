@@ -149,4 +149,8 @@ public class T2PMODULAR {
 
     public static void anunciarVencedor() {
         System.out.println("\n**************************");
-        if (hps1
+        if (hps1> 0) System.out.println("VICTORIA PARA EL JUGADOR 1");
+        else System.out.println("VICTORIA PARA EL JUGADOR 2");
+        System.out.println("**************************");
+    }
+}

@@ -1,12 +1,12 @@
 package tema4;
 
 public class Persona {
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private String dni;
-    private static final int adultAge = 18;
-    private static final int retiredAge = 65;
+    String nombre;
+    String apellido;
+    int edad;
+    final String dni;
+    static final int adultAge = 18;
+    static final int retiredAge = 65;
 
     public Persona() {
         nombre = "";
@@ -46,14 +46,7 @@ public class Persona {
     public String getDni() {
         return dni;
     }
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
 
-    public boolean validarDni() {
-        if(this.dni.length() != 9 || !Character.isLetter(this.dni.charAt(8))) {
-        } return false;
-    }
 
     public boolean isAdult() {
         if(this.edad >= adultAge) {
@@ -67,6 +60,41 @@ public class Persona {
             return true;
         }
         return false;
+    }
+
+    public void ageDif(Persona persona1, Persona persona2) {
+        int diferencia = persona1.edad - persona2.edad;
+        if (diferencia == 0) {
+            System.out.println("Ambas personas tienen la misma edad:");
+        } else if (diferencia > 0) {
+            System.out.println(persona1.nombre + " tiene " +diferencia + " años más que " +  persona2.nombre);
+        } else {
+            System.out.println(persona1.nombre + " tiene " +Math.abs(diferencia) + " años menos que " +  persona2.nombre);
+        }
+    }
+
+
+
+    static public boolean checkDNI(String dni) {
+
+        if (dni == null || dni.length() != 9) {
+            return false;
+        }
+
+        String letras_dni = "TRWAGMYFPDXBNJZSQVHLCKE";
+        String patron_dni = "^[0-9]{8}[A-Z]$";
+
+        dni = dni.toUpperCase();
+        if (!dni.matches(patron_dni)) {
+            return false;
+        }
+
+        String parteNums = dni.substring(0, 8);
+        char letraProporcionada = dni.charAt(8);
+        int numero = Integer.parseInt(parteNums);
+        char letraCorrecta = letras_dni.charAt(numero % 23);
+
+        return letraProporcionada == letraCorrecta;
     }
 
 }

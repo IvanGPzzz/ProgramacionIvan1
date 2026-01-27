@@ -1,9 +1,9 @@
 package tema4;
 
 public class Reloj {
-    private static int hr;
-    private static int min;
-    private static int sg;
+    private int hr;
+    private int min;
+    private int sg;
     public static final int timeDf = 0;
 
     //constructor vacío

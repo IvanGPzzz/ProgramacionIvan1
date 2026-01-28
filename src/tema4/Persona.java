@@ -7,6 +7,8 @@ public class Persona {
     final String dni;
     static final int adultAge = 18;
     static final int retiredAge = 65;
+    boolean mayorEdad;
+    boolean retired;
 
     public Persona() {
         nombre = "";
@@ -40,6 +42,9 @@ public class Persona {
         return edad;
     }
     public void setEdad(int edad) {
+        if (edad<0){
+            edad = 0;
+        }
         this.edad = edad;
     }
 
@@ -50,16 +55,17 @@ public class Persona {
 
     public boolean isAdult() {
         if(this.edad >= adultAge) {
-            return true;
+            //variable booleana
+            mayorEdad=true;
         }
-        return false;
+        return mayorEdad;
     }
 
     public boolean isRetired() {
         if(this.edad > retiredAge) {
-            return true;
+            retired=true;
         }
-        return false;
+        return retired;
     }
 
     public void ageDif(Persona persona2) {

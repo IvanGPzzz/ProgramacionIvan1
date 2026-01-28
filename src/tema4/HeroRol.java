@@ -68,7 +68,7 @@ public class HeroRol {
                 myHero.goRest();
             }
 
-            if (random.nextDouble() < 0.1) {
+            if (random.nextDouble() < 10) {
                 System.out.println("Encontraste una poción y te la tomas para recuperar 10 puntos de vida");
                 myHero.drinkPotion();
             }

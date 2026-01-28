@@ -62,14 +62,14 @@ public class Persona {
         return false;
     }
 
-    public void ageDif(Persona persona1, Persona persona2) {
-        int diferencia = persona1.edad - persona2.edad;
+    public void ageDif(Persona persona2) {
+        int diferencia = this.edad - persona2.edad;
         if (diferencia == 0) {
             System.out.println("Ambas personas tienen la misma edad:");
         } else if (diferencia > 0) {
-            System.out.println(persona1.nombre + " tiene " +diferencia + " años más que " +  persona2.nombre);
+            System.out.println(this.nombre + " tiene " +diferencia + " años más que " +  persona2.nombre);
         } else {
-            System.out.println(persona1.nombre + " tiene " +Math.abs(diferencia) + " años menos que " +  persona2.nombre);
+            System.out.println(this.nombre + " tiene " +Math.abs(diferencia) + " años menos que " +  persona2.nombre);
         }
     }
 

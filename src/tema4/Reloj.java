@@ -43,7 +43,5 @@ public class Reloj {
     public String toString() {
         return String.format("%02d:%02d:%02d", hr, min, sg);
     }
-    public void showTime() {
-        System.out.println(this.toString());
-    }
+
 }

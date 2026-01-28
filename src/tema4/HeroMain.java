@@ -6,7 +6,7 @@ public class HeroMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Hero hero1 = new Hero("Heroe1", 0, 100, 150, 0, 20, 5);
-        Hero hero2 =new Hero();
+        Hero hero2 =new Hero("Heroe2", 0, 100, 150, 0, 20, 5);
 
         System.out.println("Introduce las stats del héroe: ");
         System.out.println("Nombre: ");
@@ -21,8 +21,8 @@ public class HeroMain {
         hero1.drinkPotion();
         hero1.goRest();
         hero1.levelUp();
-        hero1.makeAttack(hero1, hero2);
-        System.out.println(hero1.toString());
-        System.out.println(hero2.toString());
+        hero1.makeAttack(hero2);
+        System.out.println(hero1);
+        System.out.println(hero2);
     }
 }

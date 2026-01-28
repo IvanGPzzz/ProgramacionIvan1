@@ -41,7 +41,7 @@ public class HeroRol {
                 for  (int i = 0; i < enemys.length; i++) {
                     if (enemys[i] != null) {
                         System.out.println("¡" + myHero.getName() + " ataca!");
-                        myHero.makeAttack(myHero, enemys[i]);
+                        myHero.makeAttack(enemys[i]);
 
                         if (enemys[i].getHealth() <=0) {
                             System.out.println("Un enemigo ha sido derrotado.");
@@ -56,7 +56,7 @@ public class HeroRol {
                 for (int i = 0; i < enemys.length; i++) {
                     if (enemys[i] != null && myHero.getHealth() > 0) {
                         System.out.println("¡El enemigo contraataca!");
-                        enemys[i].makeAttack(enemys[i], myHero);
+                        enemys[i].makeAttack(myHero);
                     }
                 }
 

@@ -69,8 +69,8 @@ public class Hero {
         + "\nDf--> " + defense);
     }
 
-    public void makeAttack(Hero hero1, Hero hero2) {
-        int maxAttack = Math.max(hero1.attack - hero2.defense, 10);
+    public void makeAttack(Hero hero2) {
+        int maxAttack = Math.max(this.attack - hero2.defense, 10);
         Random rand = new Random();
         int damageDone = rand.nextInt(maxAttack);
         if (damageDone <=0) {
@@ -81,8 +81,8 @@ public class Hero {
             hero2.health = 0;
         }
 
-        hero1.experience += 10;
-        if (hero1.experience == lvlUpXp) {
+        this.experience += 10;
+        if (this.experience == lvlUpXp) {
             levelUp();
             experience = 0;
         }

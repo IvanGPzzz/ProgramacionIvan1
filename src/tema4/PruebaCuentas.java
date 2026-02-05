@@ -98,7 +98,7 @@ public class PruebaCuentas {
                 c) Ver datos.
                 d) Realizar operación (ingreso/cargo).
                 e) Realizar transferencia.
-                e) Ver personas morosas.
+                f) Ver personas morosas.
                 x) Salir.""");
     }
 
@@ -163,8 +163,10 @@ public class PruebaCuentas {
         System.out.println("Introduce las credenciales de la nueva cuenta: ");
         System.out.println("Número de cuenta: ");
         int numCuenta = sc.nextInt();
+        sc.nextLine();
         System.out.println("Saldo: ");
         int saldo = sc.nextInt();
+        sc.nextLine();
 
         if (!personaElegida.addAcc(new Cuenta(numCuenta, saldo))) {
             System.out.println("Se ha excedido el número de cuentas máximo.\n" +
@@ -204,6 +206,7 @@ public class PruebaCuentas {
         }
         System.out.println("Introduce el número de cuenta: ");
         int numCuenta = sc.nextInt();
+        sc.nextLine();
         Cuenta cuentaElegida = buscarCuenta(personaElegida, numCuenta);
         return cuentaElegida;
     }
@@ -219,10 +222,12 @@ public class PruebaCuentas {
                     "2- Retirar cargo.\n" +
                     "0- Salir.");
             opcion = sc.nextInt();
+            sc.nextLine();
             switch (opcion) {
                 case 1:
                     System.out.println("¿Cuál es la cantidad a ingresar?");
                     int nomina = sc.nextInt();
+                    sc.nextLine();
                     cuentaElegida.ingresar(nomina);
                     System.out.println("¡Nómina ingresada!");
                     sleep(1000);
@@ -231,6 +236,7 @@ public class PruebaCuentas {
                 case 2:
                     System.out.println("¿Cuál es la cantidad a retirar?");
                     int cargo = sc.nextInt();
+                    sc.nextLine();
                     cuentaElegida.retirar(cargo);
                     System.out.println("¡Cargo retirado!");
                     sleep(1000);
@@ -256,15 +262,18 @@ public class PruebaCuentas {
         Cuenta cuentaEmisora = elegirCuenta(numPersonas, personas, sc);
         System.out.println("Introduce la cuenta receptora: ");
         Cuenta cuentaReceptora = elegirCuenta(numPersonas, personas, sc);
+
         System.out.println("Introduce la cantidad a transferir: ");
         int dineroTransferencia = sc.nextInt();
+        sc.nextLine();
+
         cuentaEmisora.retirar(dineroTransferencia);
         cuentaReceptora.ingresar(dineroTransferencia);
         System.out.println("¡Transferencia realizada!");
     }
 
     //printMorosos
-    public static void printMorosos(int numPersonas, Personaa[] personas, Scanner sc) {
+    public static void printMorosos(int numPersonas, Personaa[] personas,  Scanner sc) {
         if (numPersonas == 0) {
             System.out.println("Todavía no hay clientes.");
         }
@@ -278,6 +287,8 @@ public class PruebaCuentas {
         if (!hayMorosos) {
             System.out.println("No hay morosos.");
         }
+        System.out.println("Presiona enter para terminar...");
+        sc.nextLine();
     }
 
 }

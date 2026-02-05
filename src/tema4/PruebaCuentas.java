@@ -9,10 +9,7 @@ public class PruebaCuentas {
 
         Scanner sc = new Scanner(System.in);
         Personaa[] personas = new Personaa[5];
-        Cuenta cuentaElegida = null;
-        Personaa personaElegida = null;
         int numPersonas = 0;
-        String dniIntro;
         String opcion;
 
     /*

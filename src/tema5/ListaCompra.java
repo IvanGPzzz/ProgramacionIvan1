@@ -55,7 +55,7 @@ public class ListaCompra {
         }
     }
 
-    //ver productos en la lista que faltan en el carrito
+    //2. ver productos en la lista que faltan en el carrito
     public void showPendientes() {
         Set<String> pendientes = new HashSet(productos);
         pendientes.removeAll(carrito);

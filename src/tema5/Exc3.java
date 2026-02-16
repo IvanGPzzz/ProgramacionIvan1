@@ -20,7 +20,7 @@ public class Exc3 {
                 i++;
             } catch (InputMismatchException e) {
                 System.out.println("Credenciales incorrectas.");
-                sc.nextDouble();
+                return;
             }
         }
         System.out.println("¡Vector rellenado con éxito! " + Arrays.toString(vector));

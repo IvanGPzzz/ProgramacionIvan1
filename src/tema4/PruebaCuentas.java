@@ -133,12 +133,14 @@ public class PruebaCuentas {
 
     //anadirPersona
     public static int anadirPersona(int numPersonas, Personaa[] personas, Scanner sc) {
+        String nombre;
+        String dni;
         if (numPersonas < personas.length) {
             System.out.println("Introduce los datos del nuevo cliente: ");
             System.out.println("Nombre: ");
-            String nombre = sc.nextLine();
+            nombre = sc.nextLine();
             System.out.println("DNI: ");
-            String dni = sc.nextLine();
+            dni = sc.nextLine();
             personas[numPersonas] = new Personaa(nombre, dni);
             numPersonas++;
             System.out.println("¡Cliente añadido correctamente!");
@@ -152,27 +154,29 @@ public class PruebaCuentas {
     public static void anadirCuenta(int numPersonas, Personaa[] personas, Scanner sc) {
         if (numPersonas == 0) {
             System.out.println("Todavía no hay clientes.");
-        }
-        System.out.println("Introduce el DNI del cliente al que quieres agregar una cuenta: ");
-        String dni = sc.nextLine();
-        Personaa personaElegida = buscarPersona(personas, numPersonas, dni);
-
-        if (personaElegida == null) {
-            System.out.println("El cliente no existe");
-        }
-        System.out.println("Introduce las credenciales de la nueva cuenta: ");
-        System.out.println("Número de cuenta: ");
-        int numCuenta = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Saldo: ");
-        int saldo = sc.nextInt();
-        sc.nextLine();
-
-        if (!personaElegida.addAcc(new Cuenta(numCuenta, saldo))) {
-            System.out.println("Se ha excedido el número de cuentas máximo.\n" +
-                    "La cuenta bancaria no ha sido agregada.");
         } else {
-            System.out.println("¡Cuenta agregada correctamente!");
+            System.out.println("Introduce el DNI del cliente al que quieres agregar una cuenta: ");
+            String dni = sc.nextLine();
+            Personaa personaElegida = buscarPersona(personas, numPersonas, dni);
+
+            if (personaElegida == null) {
+                System.out.println("El cliente no existe");
+            } else {
+                System.out.println("Introduce las credenciales de la nueva cuenta: ");
+                System.out.println("Número de cuenta: ");
+                int numCuenta = sc.nextInt();
+                sc.nextLine();
+                System.out.println("Saldo: ");
+                int saldo = sc.nextInt();
+                sc.nextLine();
+
+                if (!personaElegida.addAcc(new Cuenta(numCuenta, saldo))) {
+                    System.out.println("Se ha excedido el número de cuentas máximo.\n" +
+                            "La cuenta bancaria no ha sido agregada.");
+                } else {
+                    System.out.println("¡Cuenta agregada correctamente!");
+                }
+            }
         }
     }
 
@@ -180,15 +184,20 @@ public class PruebaCuentas {
     public static void verDatos(int numPersonas, Personaa[] personas, Scanner sc) {
         if (numPersonas == 0) {
             System.out.println("Todavía no hay clientes.");
-        }
-        System.out.println("Introduce el DNI del cliente para ver sus datos: ");
-        String dni = sc.nextLine();
-        Personaa personaElegida = buscarPersona(personas, numPersonas, dni);
-        System.out.println("Nombre: " + personaElegida.getNombre());
-        System.out.println("DNI: " + personaElegida.getDni());
-        for (int i = 0; i < personaElegida.getAccCont(); i++) {
-            System.out.println("Número de cuenta: " + (i + 1) + personaElegida.cuentas[i].getNumCuenta());
-            System.out.println("Saldo: " + personaElegida.cuentas[i].getSaldo());
+        } else {
+            System.out.println("Introduce el DNI del cliente para ver sus datos: ");
+            String dni = sc.nextLine();
+            Personaa personaElegida = buscarPersona(personas, numPersonas, dni);
+
+            if (personaElegida == null) {
+                System.out.println("El cliente no existe");
+            } else {
+                System.out.println(personaElegida);
+
+                for (int i = 0; i < personaElegida.getAccCont(); i++) {
+                    System.out.println(personaElegida.cuentas[i]);
+                }
+            }
         }
     }
 
@@ -196,19 +205,23 @@ public class PruebaCuentas {
     public static Cuenta elegirCuenta(int numPersonas, Personaa[] personas, Scanner sc) {
         if (numPersonas == 0) {
             System.out.println("Todavía no hay clientes.");
-        }
-        System.out.println("Introduce el DNI: ");
-        String dni = sc.nextLine();
-        Personaa personaElegida = buscarPersona(personas, numPersonas, dni);
+            return null;
+        } else {
+            System.out.println("Introduce el DNI: ");
+            String dni = sc.nextLine();
+            Personaa personaElegida = buscarPersona(personas, numPersonas, dni);
 
-        if (personaElegida == null) {
-            System.out.println("El cliente no existe");
+            if (personaElegida == null) {
+                System.out.println("El cliente no existe");
+                return null;
+            } else {
+                System.out.println("Introduce el número de cuenta: ");
+                int numCuenta = sc.nextInt();
+                sc.nextLine();
+                Cuenta cuentaElegida = buscarCuenta(personaElegida, numCuenta);
+                return cuentaElegida;
+            }
         }
-        System.out.println("Introduce el número de cuenta: ");
-        int numCuenta = sc.nextInt();
-        sc.nextLine();
-        Cuenta cuentaElegida = buscarCuenta(personaElegida, numCuenta);
-        return cuentaElegida;
     }
 
     //realizarOperacion
@@ -217,6 +230,10 @@ public class PruebaCuentas {
         do {
             System.out.println("¿Sobre que cuenta quieres realizar la operación?");
             Cuenta cuentaElegida = elegirCuenta(numPersonas, personas, sc);
+            if (cuentaElegida == null) {
+                System.out.println("La cuenta no existe");
+                return;
+            }
             System.out.println("¿Qué operación desea realizar?\n" +
                     "1- Ingresar nómina.\n" +
                     "2- Retirar cargo.\n" +
@@ -260,8 +277,16 @@ public class PruebaCuentas {
     public static void transferencia(int numPersonas, Personaa[] personas, Scanner sc) {
         System.out.println("Introduce la cuenta emisora: ");
         Cuenta cuentaEmisora = elegirCuenta(numPersonas, personas, sc);
+        if (cuentaEmisora == null) {
+            System.out.println("La cuenta no existe");
+            return;
+        }
         System.out.println("Introduce la cuenta receptora: ");
         Cuenta cuentaReceptora = elegirCuenta(numPersonas, personas, sc);
+        if (cuentaReceptora == null) {
+            System.out.println("La cuenta no existe");
+            return;
+        }
 
         System.out.println("Introduce la cantidad a transferir: ");
         int dineroTransferencia = sc.nextInt();
@@ -276,19 +301,21 @@ public class PruebaCuentas {
     public static void printMorosos(int numPersonas, Personaa[] personas,  Scanner sc) {
         if (numPersonas == 0) {
             System.out.println("Todavía no hay clientes.");
-        }
-        boolean hayMorosos = false;
-        for (int i = 0; i < numPersonas; i++) {
-            if (personas[i].esMoroso()) {
-                System.out.println("Sr./Sra. " + personas[i].getNombre() + " con DNI: " + personas[i].getDni());
-                hayMorosos = true;
+        } else {
+            boolean hayMorosos = false;
+            for (int i = 0; i < numPersonas; i++) {
+                if (personas[i].esMoroso()) {
+                    System.out.println(personas[i]);
+                    System.out.println("Sr./Sra. " + personas[i].getNombre() + " con DNI: " + personas[i].getDni());
+                    hayMorosos = true;
+                }
             }
+            if (!hayMorosos) {
+                System.out.println("No hay morosos.");
+            }
+            System.out.println("Presiona enter para terminar...");
+            sc.nextLine();
         }
-        if (!hayMorosos) {
-            System.out.println("No hay morosos.");
-        }
-        System.out.println("Presiona enter para terminar...");
-        sc.nextLine();
     }
 
 }

@@ -27,23 +27,29 @@ public class Personaa {
     public int getAccCont() {return accCont;}
     public void setaccCont(int accCont) {this.accCont = accCont;}
 
+    public String toString() {
+        return "Nombre: " + nombre + "\nDni: " + dni;
+    }
+
 //añadir cuenta y devolver si cabe
     public boolean addAcc(Cuenta c) {
+        boolean anyadida= false;
         if  (accCont < 3) {
             cuentas[accCont] = c;
             accCont++;
-            return true;
+            anyadida= true;
         }
-        return false;
+        return anyadida;
     }
 
 //moroso check
     public boolean esMoroso() {
+        boolean moroso = false;
         for (int i = 0; i < accCont; i++) {
             if (cuentas[i].getSaldo() < 0) {
-                return true;
+                 moroso = true;
             }
         }
-        return false;
+        return moroso;
     }
 }

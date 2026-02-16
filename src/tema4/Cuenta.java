@@ -19,12 +19,18 @@ public class Cuenta {
     public int getSaldo() {return saldo;}
     public void setSaldo(int saldo) {this.saldo = saldo;}
 
+//ingreso
     public void ingresar(int cantIngres) {
         saldo += cantIngres;
     }
 
+//retirada
     public void retirar(int cantRetir) {
         saldo -= cantRetir;
+    }
+
+    public String toString() {
+        return "Número de cuenta: " + numCuenta + "\nSaldo: " + saldo;
     }
 
 }

@@ -1,53 +1,60 @@
-package tema5;
+package tema5.colecciones1;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class ListaCompra {
-    private Set<String> productos;
+    private Set<String> lista;
     private Set<String> carrito;
 
     public ListaCompra() {
-        productos = new HashSet<>();
+        lista = new HashSet<>();
         carrito = new HashSet<>();
     }
 
+    /*public String toString() {
+        System.out.println("\n---LISTA DE LA COMPRA---");
+        for (String producto : lista) {
+            System.out.println("- " + producto);
+        }
+    }*/
+
     //1. añadir productos
     public boolean addProducto(String producto) {
-        if (productos.contains(producto)) {
-            System.out.println("El producto " + producto + " ya existe");
+        if (lista.contains(producto)) {
+            System.out.println("\nEl producto " + producto + " ya existe");
             return false;
         }
-        return productos.add(producto);
+        return lista.add(producto);
     }
 
     //1. mostrar lista de productos
     public void showLista() {
-        if (productos.isEmpty()) {
-            System.out.println("No hay productos en la lista.");
+        if (lista.isEmpty()) {
+            System.out.println("\nNo hay productos en la lista.");
         } else {
             System.out.println("\n---LISTA DE LA COMPRA---");
-            for (String producto : productos) {
+            for (String producto : lista) {
                 System.out.println("- " + producto);
             }
         }
     }
 
-    //2. añadir al carrito
+    //4. añadir al carrito
     public void addCarrito(String producto) {
-        if(productos.contains(producto)) {
+        if(lista.contains(producto)) {
         carrito.add(producto);
-        System.out.println(producto + " añadido al carrito correctamente.");
+        System.out.println("\n" + producto + " añadido al carrito correctamente.");
         } else {
-        System.out.println("El producto '" + producto + "' no está en tu lista de la compra.");
+        System.out.println("\nEl producto '" + producto + "' no está en tu lista de la compra.");
         carrito.add(producto);
         }
     }
 
-    //2. ver carrito
+    //4. ver carrito
     public void showCarrito() {
         if (carrito.isEmpty()) {
-            System.out.println("El carrito está vacío.");
+            System.out.println("\nEl carrito está vacío.");
         } else {
             System.out.println("\n---CARRITO---");
             for (String producto : carrito) {
@@ -55,13 +62,13 @@ public class ListaCompra {
         }
     }
 
-    //2. ver productos en la lista que faltan en el carrito
+    //4. ver productos en la lista que faltan en el carrito
     public void showPendientes() {
-        Set<String> pendientes = new HashSet(productos);
+        Set<String> pendientes = new HashSet(lista);
         pendientes.removeAll(carrito);
 
         if (pendientes.isEmpty()) {
-            System.out.println("Has añadido toda tu lista al carrito.");
+            System.out.println("\nHas añadido toda tu lista al carrito.");
         } else {
             System.out.println("\n---PRODUCTOS PENDENTES---");
             for (String producto : pendientes) {

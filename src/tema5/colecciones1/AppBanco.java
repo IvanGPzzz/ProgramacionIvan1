@@ -1,4 +1,4 @@
-package tema5;
+package tema5.colecciones1;
 
 import java.util.ArrayList;
 import java.util.List;

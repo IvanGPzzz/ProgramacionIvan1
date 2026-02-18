@@ -1,6 +1,5 @@
-package tema5;
+package tema5.excepciones1;
 
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;

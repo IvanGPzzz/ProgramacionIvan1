@@ -1,4 +1,4 @@
-package tema5;
+package tema5.excepciones1;
 
 public class Exc6 {
     public static void main(String[] args) throws Exception {

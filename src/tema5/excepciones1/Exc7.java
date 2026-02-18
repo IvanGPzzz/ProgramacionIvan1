@@ -1,4 +1,4 @@
-package tema5;
+package tema5.excepciones1;
 
 import java.util.ArrayList;
 import java.util.Scanner;

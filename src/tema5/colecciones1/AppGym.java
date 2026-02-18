@@ -1,4 +1,4 @@
-package tema5;
+package tema5.colecciones1;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -74,12 +74,14 @@ public class AppGym {
         if (users.containsKey(dni)) {
             System.out.println("El usuario ya existe");
         } else  {
+            System.out.println("Ingresa el dni del usuario:");
+            dni = dni;
             System.out.println("Ingresa el nombre del usuario:");
             nombre = sc.nextLine();
             System.out.println("Ingresa la edad del usuario:");
             edad = sc.nextInt();
 
-            users.put(dni, new GymUser(nombre, edad));
+            users.put(dni ,new GymUser(dni, nombre, edad));
             System.out.println("Usuario inscrito correctamente");
         }
     }
@@ -112,7 +114,7 @@ public class AppGym {
         dni = sc.nextLine();
         GymUser u = users.get(dni);
         if (u != null) {
-            System.out.println(u + "\nDNI: " + dni);
+            System.out.println(u);
         } else  {
             System.out.println("Usuario no encontrado.");
         }
@@ -128,7 +130,7 @@ public class AppGym {
             nombre = sc.nextLine();
             System.out.println("Nueva edad: ");
             edad = sc.nextInt();
-            users.put(dni, new GymUser(nombre, edad));
+            users.put(dni, new GymUser(dni, nombre, edad));
             System.out.println("Usuario modificado correctamente.");
         } else   {
             System.out.println("Usuario no encontrado.");

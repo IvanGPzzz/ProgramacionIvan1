@@ -1,4 +1,4 @@
-package tema5;
+package tema5.colecciones1;
 
 import java.util.Scanner;
 import static java.lang.Thread.sleep;

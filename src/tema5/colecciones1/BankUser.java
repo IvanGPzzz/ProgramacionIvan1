@@ -1,4 +1,4 @@
-package tema5;
+package tema5.colecciones1;
 
 public class BankUser {
     private String nombre;
@@ -23,5 +23,9 @@ public class BankUser {
     public void setDni(String dni) {this.dni = dni;}
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setEdad(int edad) {this.edad = edad;}
+
+    public String toString() {
+        return "Nombre: " + nombre +  "\nEdad: " + edad + "\nDni: " + dni;
+    }
 
 }

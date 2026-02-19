@@ -27,12 +27,12 @@ public class Exc4 {
                 System.out.println("\n¿Qué posicion quieres ver?");
                 posicion = sc.nextInt();
                  if (posicion >= 0) {
-                     System.out.println("El valor en la posición " + posicion + " es: " + vector[posicion]);
+                     System.out.println("\nEl valor en la posición " + posicion + " es: " + vector[posicion]);
                  }
             } catch (InputMismatchException e) {
-                System.out.println("Error: debes introducir un valor entero.");
+                System.err.println("Error: debes introducir un valor entero.");
             } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("Error: la posición elegida no existe.");
+                System.err.println("Error: la posición elegida no existe.");
                 System.exit(0);
             }
         }

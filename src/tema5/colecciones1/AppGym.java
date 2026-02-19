@@ -21,13 +21,9 @@ public class AppGym {
         int edad2 = 0;
 
         do {
-            System.out.println("¿Qué quieres hacer?: \n" +
-                    "1. Dar de alta a un usuario.\n" +
-                    "2. Dar de baja a un usuario.\n" +
-                    "3. Ver datos de un usuario.\n" +
-                    "4. Modificar un usuario.\n" +
-                    "0. Salir.");
             opcion = sc.nextInt();
+            showMenu();
+
             switch(opcion) {
                 case 1:
                     alta(dni, nombre, edad, users);
@@ -63,6 +59,15 @@ public class AppGym {
                     break;
             }
         } while(opcion != 0);
+    }
+
+    public static void showMenu() {
+        System.out.println("¿Qué quieres hacer?: \n" +
+                "1. Dar de alta a un usuario.\n" +
+                "2. Dar de baja a un usuario.\n" +
+                "3. Ver datos de un usuario.\n" +
+                "4. Modificar un usuario.\n" +
+                "0. Salir.");
     }
 
     // dar de alta

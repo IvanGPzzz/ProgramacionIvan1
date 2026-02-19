@@ -19,13 +19,14 @@ public class Gato {
     }
     public int getEdad() {return edad;}
     public void setEdad(int edad) throws Exception {
-        if (edad < 0) {
+        if (edad <= 0) {
             throw new Exception("La edad debe ser positiva.");
         }
         this.edad = edad;
     }
 
-    public void showGato() throws Exception {
-        System.out.println("Nombre:" + nombre + "\nEdad:" + edad);
+    public String toString() {
+        return "Gato{" + "nombre:" + nombre + ", edad:" + edad + '}';
     }
+
 }

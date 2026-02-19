@@ -13,14 +13,8 @@ public class AppBanco {
         int opcion;
 
         do {
-            System.out.println("\n---COLA DEL BANCO---");
-            System.out.println("¿Qué operación quiere realizar?\n" +
-                    "1. Añadir usuario al final de la cola.\n" +
-                    "2. Eliminar usuario atendido del principio de la cola.\n" +
-                    "3 .Eliminar usuario que abandona su posición en la cola.\n" +
-                    "4. Ver cola.\n" +
-                    "0. Salir.");
             opcion = sc.nextInt();
+            showMenu();
 
             switch (opcion) {
                 case 1:
@@ -56,6 +50,16 @@ public class AppBanco {
                     break;
             }
         } while (opcion != 0);
+    }
+
+    public static void showMenu() {
+        System.out.println("\n---COLA DEL BANCO---");
+        System.out.println("¿Qué operación quiere realizar?\n" +
+                "1. Añadir usuario al final de la cola.\n" +
+                "2. Eliminar usuario atendido del principio de la cola.\n" +
+                "3 .Eliminar usuario que abandona su posición en la cola.\n" +
+                "4. Ver cola.\n" +
+                "0. Salir.");
     }
 
     //añadir usuario al final de la cola

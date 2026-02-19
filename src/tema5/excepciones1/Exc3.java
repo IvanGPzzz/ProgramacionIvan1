@@ -16,11 +16,12 @@ public class Exc3 {
         while (i < vector.length) {
             try {
                 System.out.print("Introduce el valor de la posición " + (i+1) + " del vector: ");
-                vector[i] = sc.nextDouble();
+                double valor = sc.nextInt();
+                vector[i] = valor;
                 i++;
             } catch (InputMismatchException e) {
-                System.out.println("Credenciales incorrectas.");
-                return;
+                System.err.println("Credenciales incorrectas.");
+                sc.nextLine();
             }
         }
         System.out.println("¡Vector rellenado con éxito! " + Arrays.toString(vector));

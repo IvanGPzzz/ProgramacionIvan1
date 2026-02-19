@@ -18,9 +18,9 @@ public class Exc2 {
             division = num1 / num2;
             System.out.println("El resultado es: " + division);
         } catch (InputMismatchException e) {
-            System.out.println("Valores no válidos");
+            System.err.println("Valores no válidos");
         } catch (ArithmeticException e) {
-            System.out.println("No se puede dividir por cero");
+            System.err.println("No se puede dividir entre cero");
         }
     }
 }

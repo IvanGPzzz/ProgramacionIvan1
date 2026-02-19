@@ -11,7 +11,8 @@ public class Exc5 {
             int p = sc.nextInt();
             printPos(p);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("\nError: el número inroducido no es positivo.");
+            System.err.println(e.getMessage());
         }
 
         try {
@@ -19,7 +20,7 @@ public class Exc5 {
             int n = sc.nextInt();
             printNeg(n);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.err.println("\nError: el número inroducido no es negativo.");
         }
     }
 

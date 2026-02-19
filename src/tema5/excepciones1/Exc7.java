@@ -8,6 +8,7 @@ public class Exc7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Gato> gatos = new ArrayList<>();
+        int cont = 1;
 
         System.out.println("\n----LISTADO DE GATOS----");
         while (gatos.size() < 5) {
@@ -27,11 +28,12 @@ public class Exc7 {
 
         for (Gato gato : gatos) {
             try {
-                System.out.println("\nGato " + gatos.size() + ": ");
-                gato.showGato();
+                System.out.println("\nGato " + cont + ": ");
+                System.out.println(gato);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            cont++;
         }
     }
 }

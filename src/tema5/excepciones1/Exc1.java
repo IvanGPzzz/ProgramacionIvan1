@@ -12,7 +12,8 @@ public class Exc1 {
             input = sc.nextInt();
             System.out.println("Valor introducido: " + input);
         } catch (InputMismatchException e) {
-            System.out.println("Valor introducido incorrecto.");
+            System.err.println("Valor introducido incorrecto.");
+            /*e.printStackTrace();*/
         }
     }
 }

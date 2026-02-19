@@ -5,21 +5,17 @@ public class Exc6 {
 
         try {
             Gato g1 = new Gato("Tom", 5);
-            g1.showGato();
-        } catch (Exception ex) {
-            System.err.println("\nHubo un error en la creación del gato.\n" + ex.getMessage());
-        }
+            System.out.println(g1);
 
-        try {
+
+
             Gato g2 = new Gato("To", 5);
-            g2.showGato();
-        }  catch (Exception ex) {
-            System.err.println("\nHubo un error en la creación del gato.\n" + ex.getMessage());
-        }
+            System.out.println(g2);
 
-        try {
+
+
             Gato g3 = new Gato("Tom", -5);
-            g3.showGato();
+            System.out.println(g3);
         }   catch (Exception ex) {
             System.err.println("\nHubo un error en la creación del gato.\n" + ex.getMessage());
         }

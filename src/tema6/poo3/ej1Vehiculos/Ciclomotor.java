@@ -1,14 +1,13 @@
-package tema6.poo3;
+package tema6.poo3.ej1Vehiculos;
 
 public class Ciclomotor extends Vehiculo {
     int cilindrada;
 
     public Ciclomotor() {
-        this("","","","");
-        cilindrada = 0;
+        this("","","","", 0);
     }
 
-    public Ciclomotor(String marca, String modelo, String color, String matricula) {
+    public Ciclomotor(String marca, String modelo, String color, String matricula, int cilindrada) {
         super(marca, modelo, color, matricula);
         this.cilindrada = cilindrada;
     }
@@ -19,5 +18,9 @@ public class Ciclomotor extends Vehiculo {
             carne = false;
         }
         return carne;
+    }
+
+    public String toString(){
+        return "Marca: " + marca + "\nModelo: " + modelo + "\nColor: " + color + "\nMatricula: " + matricula + "\nCilindrada: " +  cilindrada;
     }
 }

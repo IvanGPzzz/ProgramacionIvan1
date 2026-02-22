@@ -1,4 +1,4 @@
-package tema6.poo3;
+package tema6.poo3.ej1Vehiculos;
 
 public class Vehiculo {
     String marca;
@@ -29,4 +29,7 @@ public class Vehiculo {
     public String getMatricula() {return matricula;}
     public void setMatricula(String matricula) {this.matricula = matricula;}
 
+    public String toString(){
+        return "Marca: " + marca + "\nModelo: " + modelo + "\nColor: " + color + "\nMatricula: " + matricula;
+    }
 }

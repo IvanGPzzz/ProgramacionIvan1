@@ -1,10 +1,10 @@
 package tema6.poo3.ej1Vehiculos;
 
 public class Vehiculo {
-    String marca;
-    String modelo;
-    String color;
-    String matricula;
+    protected String marca;
+    protected String modelo;
+    protected String color;
+    protected String matricula;
 
     public Vehiculo() {
         marca = "";

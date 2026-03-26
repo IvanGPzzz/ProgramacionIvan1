@@ -113,7 +113,7 @@ public class Main {
         String especie = sc.nextLine();
         System.out.println("Peso: ");
         double peso = sc.nextDouble();
-        parque.addAvistamiento(new Serpiente(hora, peso, especie));
+        parque.addAvistamiento(new Pajaro(hora, peso, especie));
         System.out.println("Avistamieto añadido con éxito!");
     }
 

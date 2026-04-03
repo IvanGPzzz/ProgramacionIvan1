@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ej3 {
+public class Ej3 {
     public static void main(String[] args) {
         File texto = new File("texto.txt");
         int numPalabras = 0;

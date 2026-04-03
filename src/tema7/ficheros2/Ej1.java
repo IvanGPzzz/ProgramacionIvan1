@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class ej1 {
+public class Ej1 {
     public static void main(String[] args) {
         String nombre;
         int edad;
@@ -16,6 +16,7 @@ public class ej1 {
             nombre = sc.nextLine();
             System.out.println("Introduce el edad: ");
             edad = sc.nextInt();
+            sc.nextLine();
         } while (nombre.isEmpty());
 
         if (escribir("usuarios.txt", nombre, edad)) {
@@ -31,8 +32,10 @@ public class ej1 {
             bw.write("Nombre: " + nombre);
             bw.newLine();
             bw.write("Edad: " + edad);
+            escrito = true;
         } catch (IOException e) {
             System.err.println("El archivo no existe.");
+            escrito = false;
         }
         return escrito;
     }

@@ -1,11 +1,10 @@
 package tema7.ficheros2;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ej2 {
+public class Ej2 {
     public static void main(String[] args) {
         String usuarios = "usuarios.txt";
 

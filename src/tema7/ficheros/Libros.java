@@ -47,6 +47,5 @@ public class Libros {
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .limit(10)
                 .forEach(e -> System.out.println("- '" + e.getKey() + "' se repite " + e.getValue() + " veces."));
-
     }
 }

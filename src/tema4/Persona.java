@@ -10,7 +10,7 @@ public class Persona {
     boolean mayorEdad;
     boolean retired;
 
-    public Persona() {
+    public Persona(String s) {
         nombre = "";
         apellido = "";
         edad = 0;

@@ -1,6 +1,6 @@
 package tema7.ficheros;
 
-import tema4.Persona;
+import tema7.ficheros.Persona;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,17 +9,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class OredenarArchivos {
-    public static class Persona {
-        String nombreCompleto;
-        public Persona(String nombreCompleto) {
-            this.nombreCompleto = nombreCompleto;
-        }
-        @Override
-        public String toString() {
-            return nombreCompleto;
-        }
-    }
-
     public static void main(String args[]) throws IOException {
         String fileA = "/Users/ivangarciapaz/IdeaProjects/ProgramacionIvan1/src/tema7/ficheros/Documentos/usa_personas.txt";
         String fileB = "/Users/ivangarciapaz/IdeaProjects/ProgramacionIvan1/src/tema7/ficheros/Documentos/usa_personas_sorted.txt";
@@ -57,7 +46,7 @@ public class OredenarArchivos {
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            } else System.out.println("No ha podido ser creado el fichero");
+            } else System.out.println("El fichero no ha podido ser creado.");
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }

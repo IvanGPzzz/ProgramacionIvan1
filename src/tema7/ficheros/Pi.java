@@ -10,7 +10,7 @@ public class Pi {
         String input;
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println("Introduce el valor q buscar en Pi: ");
+            System.out.println("Introduce el valor que buscar en Pi: ");
             input = sc.nextLine();
         } while (input.isEmpty());
 
@@ -22,6 +22,8 @@ public class Pi {
             System.out.println("El número " + input + " NO existe en Pi.");
         }
     }
+
+//Strings.contains("123")
 
     public static boolean buscar(String archivo, String input) {
         boolean encontrado = false;

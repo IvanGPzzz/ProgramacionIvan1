@@ -7,8 +7,7 @@ import java.util.Scanner;
 
 public class NombresRandom {
     public static void main(String[] args) {
-        //String fileA = "/Users/ivangarciapaz/IdeaProjects/ProgramacionIvan1/src/tema7/ficheros/Documentos/usa_nombres.txt";
-        String fileA = "src/tema7/ficheros/Documentos/usa_nombres.txt";
+        String fileA = "/Users/ivangarciapaz/IdeaProjects/ProgramacionIvan1/src/tema7/ficheros/Documentos/usa_nombres.txt";
         String fileB = "/Users/ivangarciapaz/IdeaProjects/ProgramacionIvan1/src/tema7/ficheros/Documentos/usa_apellidos.txt";
         String fileC = "/Users/ivangarciapaz/IdeaProjects/ProgramacionIvan1/src/tema7/ficheros/Documentos/usa_personas.txt";
         Random rand = new Random();
@@ -41,10 +40,6 @@ public class NombresRandom {
 
         do{
             System.out.println("¿Cuantos nombres aleatorios desea añadir?");
-            while (!sc.hasNextInt()) {
-                System.out.println("Introduce un número.");
-                sc.next();
-            }
             cant = sc.nextInt();
             if(cant<=0) System.out.println("El número debe ser superior a 0.");
         } while (cant <= 0);
@@ -52,7 +47,7 @@ public class NombresRandom {
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileC, true))){
             bw.newLine();
-            bw.write("---Nuevos nombres---");
+            bw.write("---Nuevos nombresssss---");
             for(int i = 0; i < cant; i++){
                 String randNom = nombres.get(rand.nextInt(nombres.size()));
                 String randApe = apellidos.get(rand.nextInt(apellidos.size()));

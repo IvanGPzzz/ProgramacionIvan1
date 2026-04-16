@@ -1,4 +1,4 @@
-package tema7.ficheros2;
+package tema7.serializacion;
 
 import java.io.FileInputStream;
 import java.io.IOException;

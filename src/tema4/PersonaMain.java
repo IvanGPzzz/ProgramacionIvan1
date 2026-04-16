@@ -6,8 +6,8 @@ public class PersonaMain {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        Persona persona1 = new Persona();
-        Persona persona2 = new Persona("Iván", "García", 24, "12345678A");
+        //Persona persona1 = new Persona(nombre + " " + apellido);
+        Persona persona1 = new Persona("Iván", "García", 24, "12345678A");
 
         System.out.println("Introduce los datos de la persona: ");
         System.out.println("Nombre: ");

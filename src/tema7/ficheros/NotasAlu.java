@@ -11,7 +11,7 @@ import java.util.List;
 public class NotasAlu {
     public static void main(String[] args) {
         String file = "/Users/ivangarciapaz/IdeaProjects/ProgramacionIvan1/src/tema7/ficheros/Documentos/alumnos_notas.txt";
-        List<Alumno> alumnos = new ArrayList<Alumno>();
+        List<Alumno> alumnos = new ArrayList<>();
         int nota = 0;
         int total = 0;
         int cont = 0;
@@ -19,6 +19,8 @@ public class NotasAlu {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while((line= br.readLine()) != null){
+                total=0;
+                cont=0;
                 String[] alumno = line.split(" ");
                 String nombre = alumno[0];
                 String apellido = alumno[1];

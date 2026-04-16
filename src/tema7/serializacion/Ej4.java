@@ -1,4 +1,4 @@
-package tema7.ficheros2;
+package tema7.serializacion;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -10,7 +10,7 @@ public class Ej4 {
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("persona.dat"))) {
             oos.writeObject(p1);
-            System.out.println("Objeto serializada correctamente.");
+            System.out.println("Persona serializada correctamente.");
         } catch (IOException e) {
             System.err.println("Error serializando persona.");
         }

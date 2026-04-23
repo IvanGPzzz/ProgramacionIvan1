@@ -130,6 +130,7 @@ public class AppFunkos {
     public static void masCaro() {
         double maxPrice = 0;
         String funkoCaro = "";
+        Funko funko2 = null;
         for  (Funko funko : funkos) {
             if (funko.getPrecio() > maxPrice) {
                 funkoCaro = funko.getNombre();
@@ -146,7 +147,7 @@ public class AppFunkos {
             total += funko.getPrecio();
             cont ++;
         }
-        media = total / cont;
+        media = total / cont;//funkos.size()
         System.out.println("La media de precio es " + media);
     }
 

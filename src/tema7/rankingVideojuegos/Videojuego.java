@@ -1,8 +1,10 @@
 package tema7.rankingVideojuegos;
 
+import tema8.hogwarts.NotaInvalida;
+
 import java.io.Serializable;
 
-public class Videojuego implements Serializable {
+public abstract class Videojuego implements Serializable {
     private String titulo;
     private String plataforma;
     private int nota;
@@ -10,12 +12,12 @@ public class Videojuego implements Serializable {
     public Videojuego() {
         titulo = "";
         plataforma = "";
-        nota = 0;
+        nota = 1;
     }
-    public Videojuego(String titulo, String plataforma, int nota) {
+    public Videojuego(String titulo, String plataforma, int nota) throws NotaInvalida {
         this.titulo = titulo;
         this.plataforma = plataforma;
-        this.nota = nota;
+        setNota(nota);
     }
 
     public String getTitulo() {return titulo;}
@@ -23,7 +25,14 @@ public class Videojuego implements Serializable {
     public String getPlataforma() {return plataforma;}
     public void setPlataforma(String plataforma) {this.plataforma = plataforma;}
     public int getNota() {return nota;}
-    public void setNota(int nota) {this.nota = nota;}
+    public void setNota(int nota) throws NotaInvalida {
+        if (nota < 1 || nota > 10) {
+            throw new NotaInvalida();
+        }
+        this.nota = nota;
+    }
+
+    public abstract String getTipo();
 
     @Override
     public String toString() {

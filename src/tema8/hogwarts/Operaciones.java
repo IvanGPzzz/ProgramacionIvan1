@@ -1,4 +1,4 @@
-package tema8;
+package tema8.hogwarts;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.Properties;
 public class Operaciones {
     private Connection conectar() throws SQLException {
         Properties prop = new Properties();
-        try (FileInputStream fis = new FileInputStream("/Users/ivangarciapaz/IdeaProjects/ProgramacionIvan1/db.properties")) {
+        try (FileInputStream fis = new FileInputStream("db.properties")) {
             prop.load(fis);
         } catch (IOException e) {
             throw new RuntimeException(e);

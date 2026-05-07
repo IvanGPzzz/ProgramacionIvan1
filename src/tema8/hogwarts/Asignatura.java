@@ -1,4 +1,4 @@
-package tema8;
+package tema8.hogwarts;
 
 public class Asignatura {
     private int id;

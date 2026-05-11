@@ -28,7 +28,6 @@ public class PilotsCRUD {
 
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
-            ResultSet rs = sentencia.executeQuery();
 
             sentencia.setString(1, p.getCodigo());
             sentencia.setString(2, p.getNombre());
@@ -48,12 +47,12 @@ public class PilotsCRUD {
 
     public static Piloto ReadPilot(int id) {
         Piloto piloto = null;
-        String consulta = "SELECT * FROM drivers WHERE id = ?";
+        String consulta = "SELECT * FROM drivers WHERE driverid = ?";
 
         try (Connection cone = conectar()) {
             PreparedStatement sentencia= cone.prepareStatement(consulta);
-            ResultSet rs = sentencia.executeQuery();
             sentencia.setInt(1, id);
+            ResultSet rs = sentencia.executeQuery();
             if (rs.next()) {
                 piloto = new Piloto(
                         rs.getInt("driverid"),
@@ -99,11 +98,10 @@ public class PilotsCRUD {
     }
 
     public static void UpdatePilot(Piloto p) {
-        String consulta = "UPDATE drivers SET code = ?, forename = ?, surname = ?, dob = ?, nationality = ?, url = ? WHERE id = ?";
+        String consulta = "UPDATE drivers SET code = ?, forename = ?, surname = ?, dob = ?, nationality = ?, url = ? WHERE driverid = ?";
 
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
-            ResultSet rs = sentencia.executeQuery();
 
             sentencia.setString(1, p.getCodigo());
             sentencia.setString(2, p.getNombre());
@@ -122,11 +120,10 @@ public class PilotsCRUD {
     }
 
     public static void DeletePilot(Piloto p) {
-        String consulta = "DELETE FROM drivers WHERE id = ?";
+        String consulta = "DELETE FROM drivers WHERE driverid = ?";
 
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
-            ResultSet rs = sentencia.executeQuery();
 
             sentencia.setInt(1, p.getIdPiloto());
 

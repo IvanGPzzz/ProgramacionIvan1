@@ -29,7 +29,7 @@ public class Operaciones {
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
             ResultSet rs = sentencia.executeQuery();
-            System.out.println("----LISTA DE ASIGNATURAS----");
+            System.out.println("----LISTA ACTUAL DE ASIGNATURAS----");
             while (rs.next()) {
                 Asignatura asignatura = new Asignatura();
                 asignatura.setId(rs.getInt("id_asignatura"));
@@ -38,6 +38,7 @@ public class Operaciones {
                 asignatura.setObligatoria(rs.getBoolean("obligatoria"));
                 asignaturas.add(asignatura);
             }
+            System.out.println("\n");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -45,9 +46,9 @@ public class Operaciones {
     }
 
     public void estudiantesCasa(String casa) {
-        String consulta = "select e.nombre, e.apellido " +
-                "from Estudiante e join Casa c on e.id_casa = c.id_casa " +
-                "where c.nombre = ?";
+        String consulta = "SELECT e.nombre, e.apellido " +
+                "FROM Estudiante e JOIN Casa c ON e.id_casa = c.id_casa " +
+                "WHERE c.nombre = ?";
 
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
@@ -65,13 +66,14 @@ public class Operaciones {
     }
 
     public void mascotaEstudiante(String nombre,  String apellido) {
-        String consulta = "select m.nombre from Mascota m " +
-                "join Estudiante e on m.id_estudiante = e.id_estudiante " +
-                "where e.nombre = ? and e.apellido = ?";
+        String consulta = "SELECT m.nombre FROM Mascota m " +
+                "JOIN Estudiante e ON m.id_estudiante = e.id_estudiante " +
+                "WHERE e.nombre = ? AND e.apellido = ?";
 
         try (Connection cone = conectar()) {
             PreparedStatement sentencia= cone.prepareStatement(consulta);
             sentencia.setString(1, nombre);
+            sentencia.setString(2, apellido);
             ResultSet rs = sentencia.executeQuery();
             System.out.println("La mascota de " + nombre + " " + apellido + " es:");
             while (rs.next()) {
@@ -83,10 +85,10 @@ public class Operaciones {
         }
     }
 
-    public void numEstudiantesCasa(String casa) {
-        String consulta = "select c.nombre, count(c.id_estudiante) as cant_estudiantes " +
-                "from Casa c join Estudiante e on c.id_casa = e.id_casa" +
-                "group by c.nombre";
+    public void numEstudiantesCasa() {
+        String consulta = "SELECT c.nombre, COUNT(e.id_estudiante) AS cant_estudiantes " +
+                "FROM Casa c JOIN Estudiante e ON c.id_casa = e.id_casa " +
+                "GROUOP BY c.nombre";
 
         try (Connection cone = conectar()) {
             PreparedStatement sentencia= cone.prepareStatement(consulta);
@@ -103,21 +105,21 @@ public class Operaciones {
     }
 
     public void insertarAsignatura(String nombre, String aula, boolean obligatoria) {
-        String consulta = "insert into Asignatura (nombre, aula, obligatoria) values (?, ?, ?)";
+        String consulta = "INSERT INTO Asignatura (nombre, aula, obligatoria) VALUES (?, ?, ?)";
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
             sentencia.setString(1, nombre);
             sentencia.setString(2, aula);
             sentencia.setBoolean(3, obligatoria);
             sentencia.executeUpdate();
-            System.out.println("C insertada correctamente.");
+            System.out.println("Asignatura insertada correctamente.");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void modificarAsignatura(int id, String nuevaAula) {
-        String consulta = "update Asignatura set aula = ? where id_asignatura = ?";
+    public void modificarAula(int id, String nuevaAula) {
+        String consulta = "UPDATE Asignatura SET aula = ? WHERE id_asignatura = ?";
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
             sentencia.setString(1, nuevaAula);
@@ -129,11 +131,11 @@ public class Operaciones {
         }
     }
 
-    public void eliminarAsignatura(int id) {
-        String consulta = "delete from Asignatura where id_asignatura=?";
+    public void eliminarAsignatura(String nombre) {
+        String consulta = "DELETE FROM Asignatura WHERE nombre=?";
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
-            sentencia.setInt(1, id);
+            sentencia.setString(1, nombre);
             sentencia.executeUpdate();
             System.out.println(" Asignatura eliminada correctamente.");
         } catch (SQLException e) {

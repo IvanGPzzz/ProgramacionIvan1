@@ -1,7 +1,5 @@
 package tema7.rankingVideojuegos;
 
-import tema8.hogwarts.NotaInvalida;
-
 public class VideojuegoFisico extends Videojuego {
     private String tiendaFisica;
     private String estado;

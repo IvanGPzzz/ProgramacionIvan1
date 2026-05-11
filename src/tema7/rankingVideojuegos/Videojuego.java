@@ -1,7 +1,5 @@
 package tema7.rankingVideojuegos;
 
-import tema8.hogwarts.NotaInvalida;
-
 import java.io.Serializable;
 
 public abstract class Videojuego implements Serializable {

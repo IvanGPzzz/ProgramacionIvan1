@@ -48,7 +48,7 @@ public class Piloto {
 
     @Override
     public String toString() {
-        return "- Piloto: " + nombre + " " + apellido +
+        return "\n- Piloto: " + nombre + " " + apellido +
                 "\nID: " + idPiloto +
                 "\nCódigo de piloto: " + codigo +
                 "\nFecha de nacimiento: " +  fechaNacimiento +

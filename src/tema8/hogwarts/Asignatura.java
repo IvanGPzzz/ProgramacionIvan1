@@ -7,7 +7,7 @@ public class Asignatura {
     boolean obligatoria;
 
     public Asignatura(){}
-    public Asignatura(int id, String nombre, String profesor, String aula) {
+    public Asignatura(int id, String nombre, String aula, boolean obligatoria) {
         this.id = id;
         this.nombre = nombre;
         this.aula = aula;
@@ -20,7 +20,7 @@ public class Asignatura {
     public void setNombre(String nombre) {this.nombre = nombre;}
     public String getAula() {return aula;}
     public void setAula(String aula) {this.aula = aula;}
-    public boolean isObligatoria() {return obligatoria;}
+    public boolean getObligatoria() {return obligatoria;}
     public void setObligatoria(boolean obligatoria) {this.obligatoria = obligatoria;}
 
     @Override

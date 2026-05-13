@@ -11,10 +11,10 @@ public class AppFunkos {
     public static void main(String[] args) {
         int opcion;
         loadFunkos();
-        showMenu();
-        opcion = sc.nextInt();
-        sc.nextLine();
-        while (opcion != 0) {
+        do {
+            showMenu();
+            opcion = sc.nextInt();
+            sc.nextLine();
             switch (opcion) {
                 case 1:
                     addFunko();
@@ -52,13 +52,14 @@ public class AppFunkos {
                     System.out.println("Opción no válida.");
                     limpiarPantalla();
             }
-        }
+        } while (opcion != 0);
 
     }
 
     public static void loadFunkos() {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line = br.readLine();
+            String line;
+            br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] dato = line.split(",");
                 String id  = dato[0];
@@ -123,17 +124,17 @@ public class AppFunkos {
     public static void printFunkos() {
         System.out.println("Lista de funkos:");
         for (Funko funko : funkos) {
-            System.out.println(funko.getNombre());
+            System.out.println(funko.toString());
         }
     }
 
     public static void masCaro() {
         double maxPrice = 0;
         String funkoCaro = "";
-        Funko funko2 = null;
         for  (Funko funko : funkos) {
             if (funko.getPrecio() > maxPrice) {
                 funkoCaro = funko.getNombre();
+                maxPrice = funko.getPrecio();
             }
         }
         System.out.println("El funko más caro es " + funkoCaro);
@@ -182,15 +183,15 @@ public class AppFunkos {
     }
 
     public static void showMenu() {
-        System.out.println("¿Qué acción quieres realizar? Elige una opción: " +
-                "1. Añadir funko." +
-                "2. Borrar funko." +
-                "3. Ver lista de funkos." +
-                "4. ¿Cuál es el funko más caro?" +
-                "5. ¿Cuál es la media de precio?" +
-                "6. Ver lista de funkos clasificados por modelo." +
-                "7. Ver funkos de 2023." +
-                "0. Salir del programa.");
+        System.out.println("\n¿Qué acción quieres realizar? Elige una opción: " +
+                "\n1. Añadir funko." +
+                "\n2. Borrar funko." +
+                "\n3. Ver lista de funkos." +
+                "\n4. ¿Cuál es el funko más caro?" +
+                "\n5. ¿Cuál es la media de precio?" +
+                "\n6. Ver lista de funkos clasificados por modelo." +
+                "\n7. Ver funkos de 2023." +
+                "\n0. Salir del programa.");
     }
 
     public static void limpiarPantalla() {

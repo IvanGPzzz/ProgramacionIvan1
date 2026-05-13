@@ -24,7 +24,7 @@ public class PilotsCRUD {
     }
 
     public static void CreatePilot(Piloto p) {
-        String consulta = "INSERT INTO drivers (code, forename, surname, dob, nationallity, url) VAUES (?, ?, ?, ?, ?, ?)";
+        String consulta = "INSERT INTO drivers (code, forename, surname, dob, nationallity, url) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
@@ -79,6 +79,7 @@ public class PilotsCRUD {
             PreparedStatement sentencia= cone.prepareStatement(consulta);
             ResultSet rs = sentencia.executeQuery();
 
+            System.out.println("\n----LISTA DE PILOTOS----");
             while (rs.next()) {
                 Piloto piloto = new Piloto(
                         rs.getInt("driverid"),
@@ -142,7 +143,7 @@ public class PilotsCRUD {
         try (Connection cone = conectar()) {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
             ResultSet rs = sentencia.executeQuery();
-            System.out.println("----CLASIFICACIÓN----");
+            System.out.println("\n----CLASIFICACIÓN----");
             while (rs.next()) {
                 String nombre = rs.getString("driver");
                 long puntos = rs.getLong("points");
@@ -165,7 +166,7 @@ public class PilotsCRUD {
             PreparedStatement sentencia = cone.prepareStatement(consulta);
             ResultSet rs = sentencia.executeQuery();
 
-            System.out.println("----CLASIFICACIÓN POR EQUIPOS----");
+            System.out.println("\n----CLASIFICACIÓN POR EQUIPOS----");
             while (rs.next()) {
                 String equipo = rs.getString("Equipo");
                 long puntos = rs.getLong("Puntos");
